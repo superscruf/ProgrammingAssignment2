@@ -21,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
     x <<- y
     m <<- NULL
   }
-  get()            <- function() x
+  get <- function() x
   setMatrixInverse <- function(solve) m <<- solve
   getMatrixInverse <- function() m
   list(set = set, get = get,
@@ -56,7 +56,7 @@ cacheSolve <- function(x, ...) {
   # the last thing seen in the function, it's the default return value.
   # Lazy coders are happy coders!
   data <- x$get()
-  m    <- solve(data, ...)
+  m <- solve(data, ...)
   x$setMatrixInverse(m)
   m
 }
